@@ -5,21 +5,24 @@ const PORT = 8000
 
 app.use(cors())
 
-const rappers = {
-    '21 savage': {
+const writers = {
+    'john doe': {
         'age': 29,
-        'birthName': 'Sheyaa Bin Abraham-Joseph',
-        'birthLocation': 'London, England'
+        'demo': 'Kids & Family',
+        'genre': 'Comedy, Action',
+        'level': 'Junior'
     },
-    'chance the rapper': {
-        'age': 29,
-        'birthName': 'Chancelor Bennett',
-        'birthLocation': 'Chicago, Illinois'
+    'mary sue': {
+        'age': 35,
+        'demo': 'YA, Adult',
+        'genre': 'Suspense, Mystery',
+        'level': 'Senior'
     },
     'unknown': {
-        'age': 0,
-        'birthName': 'unknown',
-        'birthLocation': 'unknown'
+        'age': 'unknown',
+        'demo': 'unknown',
+        'genre': 'unknown',
+        'level': 'unknown'
     }
 }
 
@@ -28,11 +31,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/:name', (req, res) => {
-    const rapperName = req.params.name.toLowerCase()
-    if(rappers[rapperName]){
-        res.json(rappers[rapperName])
+    const writerName = req.params.name.toLowerCase()
+    if(writers[writerName]){
+        res.json(writers[writerName])
     }else{
-        res.json(rappers['unknown'])
+        res.json(writers['unknown'])
     }
     
 })
